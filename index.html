@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Tkachuk Daria">
+  <title>Кулінарний блог – Головна</title>
+  <link rel="stylesheet" href="style6.css">
+</head>
+<body id="home-page" class="wrapper">
+
+  <!-- Показ через document.write -->
+  <script>
+    document.write('<div class="banner">👩‍🍳 Вітання з кулінарного блогу!</div>');
+  </script>
+
+  <div id="main-header" class="clearfix">
+    <h1 class="site-title">Персональний кулінарний блог</h1>
+    <div class="callout">NEW</div>
+  </div>
+
+  <nav class="navbar">
+    <ul class="menu-list">
+      <li class="menu-item"><a href="index.html">Головна</a></li>
+      <li class="menu-item"><a href="page2.html">Рецепти</a></li>
+      <li class="menu-item"><a href="page3.html">Поради</a></li>
+      <li class="menu-item"><a href="page4.html">Галерея</a></li>
+    </ul>
+  </nav>
+
+  <div class="content clearfix">
+    <p>Ласкаво просимо до <span class="highlight">моїх</span> кулінарних експериментів!</p>
+  </div>
+
+  <!-- Елементи для демонстрації DOM-методів -->
+  <button id="dialogBtn">🗨 Розпочати діалог</button>
+  <button id="go">🔗 Перейти на GitHub</button>
+  <div id="toRemove">Цей блок буде видалено через JS</div>
+  <div id="toReplace">Цей блок буде замінено через JS</div>
+
+  <footer class="site-footer clearfix">
+    <p>&copy; <span id="footer-year"></span> Tkachuk Daria</p>
+  </footer>
+
+  <!-- Підключення зовнішнього скрипта -->
+  <script src="script.js"></script>
+
+  <!-- Внутрішній скрипт: виклики функцій і DOM-маніпуляції -->
+  <script>
+    // 1. Діалог з користувачем
+    dialogWithUser();
+
+    // 2. Інформація про автора
+    developerInfo('Tkachuk', 'Daria');
+
+    // 3. Порівняння рядків
+    compareStrings('Apple', 'Orange');
+
+    // 4. Підпис у футері
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // 5. Перенаправлення за кліком
+    document.getElementById('go').onclick = redirectToGitHub;
+
+    // 6. Видалення та заміна блоків
+    document.getElementById('toRemove').remove();
+    document.getElementById('toReplace').replaceWith(
+      document.createElement('blockquote').append(document.createTextNode('Цей блок замінено!'))
+    );
+
+    // 7. Зміна стилю меню через querySelectorAll
+    document.querySelectorAll('.menu-item > a').forEach(a => {
+      a.textContent = a.textContent.toUpperCase();
+    });
+  </script>
+</body>
+</html>
